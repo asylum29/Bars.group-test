@@ -29,7 +29,7 @@ class IpController extends AbstractController
     }
 
     /**
-     * @Route("/addresses", name="ip.addresses")
+     * @Route("/addresses", name="ip.addresses", methods="GET")
      */
     public function getAddresses()
     {
@@ -39,7 +39,7 @@ class IpController extends AbstractController
     }
 
     /**
-     * @Route("/get", name="ip.get")
+     * @Route("/get", name="ip.get", methods="GET")
      */
     public function getIpInfo(Request $request)
     {
@@ -61,7 +61,7 @@ class IpController extends AbstractController
     }
 
     /**
-     * @Route("/stored", name="ip.stored")
+     * @Route("/stored", name="ip.stored", methods="GET")
      */
     public function getStored()
     {
