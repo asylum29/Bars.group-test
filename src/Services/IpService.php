@@ -16,8 +16,7 @@ class IpService
             curl_close($curl);
             $temp = json_decode($temp);
             if ($temp != null) {
-                $temp->latitude = isset($temp->latitude) ? $temp->latitude : null;
-                $temp->longitude = isset($temp->longitude) ? $temp->longitude : null;
+                $temp = $this->checkProps($temp);
                 $result = new IpAddress();
                 $result->setIp($temp->ip)
                     ->setCity($temp->city)
@@ -35,5 +34,15 @@ class IpService
             }
         }
         return $result;
+    }
+
+    private function checkProps($ipData)
+    {
+        $props = array('ip', 'city', 'city_rus', 'country', 'country_rus', 'country_code',
+            'region', 'region_rus', 'latitude', 'longitude', 'zip_code', 'time_zone');
+        foreach($props as $prop) {
+            $ipData->$prop = isset($ipData->$prop) ? $ipData->$prop : null;
+        }
+        return $ipData;
     }
 }

@@ -103,7 +103,7 @@ class IpAddress
         return $this->countryCode;
     }
 
-    public function setCountryCode(string $countryCode): self
+    public function setCountryCode(?string $countryCode): self
     {
         $this->countryCode = $countryCode;
 
@@ -115,7 +115,7 @@ class IpAddress
         return $this->country;
     }
 
-    public function setCountry(string $country): self
+    public function setCountry(?string $country): self
     {
         $this->country = $country;
 
@@ -127,7 +127,7 @@ class IpAddress
         return $this->region;
     }
 
-    public function setRegion(string $region): self
+    public function setRegion(?string $region): self
     {
         $this->region = $region;
 
